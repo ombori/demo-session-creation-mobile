@@ -1,0 +1,1 @@
+export const formatRemoteKey = (clientId: string) => `GWREMOTE_${clientId}`.replace(/-/g, '').toUpperCase();

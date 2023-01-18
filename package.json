@@ -1,0 +1,60 @@
+{
+  "name": "vnx-test-org-1.mobile-session-subscription-demo",
+  "version": "0.3.1",
+  "private": true,
+  "homepage": "./",
+  "application-type": "mobile",
+  "scripts": {
+    "bootstrap": "mkdir src/settings && cp default.settings.json src/settings/index.json",
+    "start": "yarn schema && PORT=3002 react-scripts start",
+    "schema": "mkdir -p build && npx ts-schema src/schema.ts build",
+    "prodbuild": "cross-env GENERATE_SOURCEMAP=false react-scripts build && cp package.json build/",
+    "build": "rimraf build && yarn prodbuild && yarn schema && omg app build",
+    "eject": "react-scripts eject",
+    "pub": "yarn build && omg app publish",
+    "settings": "omg app settings",
+    "upload-description": "omg app upload-description",
+    "connect": "omg dev ws"
+  },
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "dependencies": {
+    "@ombori/ga-messaging": "^2.90.2",
+    "@ombori/ga-settings": "^3.11.3",
+    "@ombori/grid-signals-react": "^3.11.3",
+    "@testing-library/jest-dom": "^4.2.4",
+    "@testing-library/react": "^9.3.2",
+    "@testing-library/user-event": "^7.1.2",
+    "query-string": "^7.1.1",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "react-scripts": "3.4.1",
+    "styled-components": "^5.3.0",
+    "typescript": "^3.9.5"
+  },
+  "devDependencies": {
+    "@ombori/ga-cli": "^1.7.6",
+    "@ombori/ts-schema": "^2.231.1",
+    "@types/jest": "^24.0.0",
+    "@types/node": "^12.0.0",
+    "@types/react": "^16.9.0",
+    "@types/react-dom": "^16.9.0",
+    "@types/styled-components": "^5.1.12",
+    "cross-env": "^7.0.2",
+    "json-schema-defaults": "^0.4.0",
+    "rimraf": "^3.0.2"
+  }
+}
